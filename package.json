@@ -1,0 +1,16 @@
+{
+    "dependencies": {
+        "discord.js": "^14.15.2",
+        "dotenv": "^16.4.5",
+        "typescript": "^5.4.5"
+    },
+    "scripts": {
+        "start": "npx tsc --outDir dist && node dist/main.js"
+    },
+    "name": "awestruck-bot",
+    "version": "1.0.0",
+    "description": "A bot to generate videos from awestruck posts",
+    "main": "index.js",
+    "author": "FizzyApple12",
+    "license": "MIT"
+}
