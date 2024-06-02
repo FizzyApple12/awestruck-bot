@@ -1,56 +1,67 @@
-import { REST, Routes, Client, GatewayIntentBits, ApplicationCommandType, ContextMenuCommandBuilder, AttachmentBuilder } from 'discord.js';
-import { CLIENT_ID, TOKEN, Engines } from './config';
+import {
+	REST,
+	Routes,
+	Client,
+	GatewayIntentBits,
+	ApplicationCommandType,
+	ContextMenuCommandBuilder,
+	AttachmentBuilder,
+} from 'discord.js';
+import {CLIENT_ID, TOKEN, Engines} from './config';
 
 const commands = [
-    new ContextMenuCommandBuilder()
-        .setName("generate")
-        .setDMPermission(true)
-        .setType(ApplicationCommandType.Message)
-        .toJSON()
+	new ContextMenuCommandBuilder()
+		.setName('generate')
+		.setDMPermission(true)
+		.setType(ApplicationCommandType.Message)
+		.toJSON(),
 ];
 
-const rest = new REST({ version: '10' }).setToken(TOKEN);
-const client = new Client({ intents: [GatewayIntentBits.Guilds] });
+const rest = new REST({version: '10'}).setToken(TOKEN);
+const client = new Client({intents: [GatewayIntentBits.Guilds]});
 
 const RegisterSlashCommands = async () => {
-    try {
-        await rest.put(Routes.applicationCommands(CLIENT_ID), { body: commands });
-    
-        console.log('Successfully created application commands.');
-    } catch (error) {
-        console.error(error);
-    }
-}
+	try {
+		await rest.put(Routes.applicationCommands(CLIENT_ID), {body: commands});
+
+		console.log('Successfully created application commands.');
+	} catch (error) {
+		console.error(error);
+	}
+};
 
 client.on('ready', () => {
-    console.log(`Logged in as ${client.user?.tag}!`);
+	console.log(`Logged in as ${client.user?.tag}!`);
 });
 
 client.on('interactionCreate', async (interaction) => {
-    // if (!interaction.isChatInputCommand()) return;
-    if (!interaction.isMessageContextMenuCommand()) return;
+	// if (!interaction.isChatInputCommand()) return;
+	if (!interaction.isMessageContextMenuCommand()) return;
 
-    if (interaction.commandName === 'generate') {
-        let message = interaction.options.data[0].message;
+	if (interaction.commandName === 'generate') {
+		let message = interaction.options.data[0].message;
 
-        if (message) {
-            console.log(message);
-    
-            let waitingMessage = await interaction.reply({ content: 'Generating the video...', ephemeral: true });
+		if (message) {
+			console.log(message);
 
-            let file = Engines[0].generateVideo(message); // TODO: Select engine from user input (?)
+			let waitingMessage = await interaction.reply({
+				content: 'Generating the video...',
+				ephemeral: true,
+			});
 
-            await message.reply({
-                files: [
-                    new AttachmentBuilder(file.data)
-                        .setName(`${message.id}.${file.extension}`)
-                        .setSpoiler(false)
-                ]
-            });
+			// let file = Engines[0].generateVideo(message); // TODO: Select engine from user input (?)
 
-            await waitingMessage.delete();
-        }
-    }
+			// await message.reply({
+			//     files: [
+			//         new AttachmentBuilder(file.data)
+			//             .setName(`${message.id}.${file.extension}`)
+			//             .setSpoiler(false)
+			//     ]
+			// });
+
+			await waitingMessage.delete();
+		}
+	}
 });
 
 RegisterSlashCommands();
