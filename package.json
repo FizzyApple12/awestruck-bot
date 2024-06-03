@@ -1,11 +1,16 @@
 {
     "dependencies": {
+        "@remotion/bundler": "4.0.167",
+        "@remotion/renderer": "4.0.167",
+        "@remotion/tailwind": "4.0.167",
         "discord.js": "^14.15.2",
         "dotenv": "^16.4.5",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
         "typescript": "^5.4.5"
     },
     "scripts": {
-        "start": "npx tsc --outDir dist && node dist/main.js"
+        "start": "npx tsc --outDir dist && node dist/src/main.js"
     },
     "name": "awestruck-bot",
     "version": "1.0.0",

@@ -59,12 +59,12 @@ export const RemotionRoot: React.FC = () => {
 	return (
 		<>
 			<Composition
-				id="MyComp"
+				id="MainComposition"
 				component={MainComposition}
 				durationInFrames={240}
 				fps={60}
-				width={1280}
-				height={720}
+				width={1920}
+				height={1080}
 				schema={MainCompositionSchema}
 				defaultProps={{
 					message: TestMessage,
