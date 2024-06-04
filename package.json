@@ -3,19 +3,25 @@
         "@remotion/bundler": "4.0.167",
         "@remotion/renderer": "4.0.167",
         "@remotion/tailwind": "4.0.167",
+        "@types/express": "^4.17.21",
+        "cors": "^2.8.5",
         "discord.js": "^14.15.2",
         "dotenv": "^16.4.5",
+        "express": "^4.19.2",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
         "typescript": "^5.4.5"
     },
     "scripts": {
-        "start": "npx tsc --outDir dist && node dist/src/main.js"
+        "start": "npx tsc --outDir dist && node --max-old-space-size=8192 dist/src/main.js"
     },
     "name": "awestruck-bot",
     "version": "1.0.0",
     "description": "A bot to generate videos from awestruck posts",
     "main": "index.js",
     "author": "FizzyApple12",
-    "license": "MIT"
+    "license": "MIT",
+    "devDependencies": {
+        "@types/cors": "^2.8.17"
+    }
 }

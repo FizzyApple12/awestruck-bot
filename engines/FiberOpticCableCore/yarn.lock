@@ -2838,6 +2838,11 @@ parse-json@^5.2.0:
     json-parse-even-better-errors "^2.3.0"
     lines-and-columns "^1.1.6"
 
+parts-of-speech@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/parts-of-speech/-/parts-of-speech-0.3.0.tgz#ca2c68e0acfbbad6350fd5f49536d2745ae2e483"
+  integrity sha512-PuPqCtMvkPkSKB3p5WEzRlcrxNR2ECauH1qtLp/CXNCwFNVYPFIsIOPqVZrnuG16mfwfyBb2x5tthlolteHC6Q==
+
 path-exists@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/path-exists/-/path-exists-4.0.0.tgz#513bdbe2d3b95d7762e8c1137efa195c6c61b5b3"

@@ -1,5 +1,5 @@
 import {WebpackOverrideFn} from '@remotion/bundler';
-import {Message} from 'discord.js';
+import {Message, User} from 'discord.js';
 
 import 'dotenv/config';
 
@@ -7,6 +7,13 @@ import 'dotenv/config';
 
 export const CLIENT_ID: string = process.env.CLIENT_ID ?? '';
 export const TOKEN: string = process.env.TOKEN ?? '';
+
+// For the Local API server
+
+export const LOCAL_API_PORT: number = parseInt(process.env.LOCAL_API_PORT ?? '3198');
+
+export const TTS_COMMAND: string = process.env.TTS_COMMAND ?? '';
+export const TTS_RETURN_TYPE: string = process.env.TTS_RETURN_TYPE ?? '';
 
 // If you need to add config parameters to the botrender.ts file, do that here
 export type RenderConfig = {
@@ -23,6 +30,7 @@ export type RenderConfig = {
 // Use this to configure the struct to pass in to the remotion video renderer
 export type VideoInputProps = {
 	message: Message<boolean>;
+    author: User;
 };
 
 // Available Render Engines:

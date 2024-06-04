@@ -10,5 +10,7 @@ import {webpackOverride} from './src/webpack-override';
 
 Config.setVideoImageFormat('png');
 Config.setOverwriteOutput(true);
+Config.setDotEnvLocation("../../.env")
+Config.setChromiumDisableWebSecurity(true);
 
 Config.overrideWebpackConfig(webpackOverride);

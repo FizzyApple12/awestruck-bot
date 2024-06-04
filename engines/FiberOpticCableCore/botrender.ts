@@ -6,7 +6,7 @@ const config: RenderConfig = {
     compositionName: 'MainComposition',
     entryPoint: "./engines/FiberOpticCableCore/src/index.ts",
     renderOptions: {
-        imageFormat: 'png',
+        imageFormat: 'jpeg',
     },
     webpackOverride,
 };
