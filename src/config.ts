@@ -1,5 +1,6 @@
 import {WebpackOverrideFn} from '@remotion/bundler';
 import {Message, User} from 'discord.js';
+import {RenderMediaOptions} from '@remotion/renderer';
 
 import 'dotenv/config';
 
@@ -36,9 +37,10 @@ export type VideoInputProps = {
 // Available Render Engines:
 
 import FiberOpticCableCoreConfig from '../engines/FiberOpticCableCore/botrender';
-import {RenderMediaOptions} from '@remotion/renderer';
+import RandomNumberConfig from '../engines/RandomNumber/botrender';
 
 export const Engines: RenderConfig[] = [
 	// Make sure to add your rendering engine here otherwise the bot won't know about it!
 	FiberOpticCableCoreConfig,
+    RandomNumberConfig
 ];
