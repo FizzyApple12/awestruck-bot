@@ -1,5 +1,7 @@
+import {useVideoConfig} from 'remotion';
 import {Img} from 'remotion';
-import { FC } from 'react';
+import {FC} from 'react';
+import {Textfit} from 'react-textfit';
 
 export type MessageComponentProps = {
 	content: string;
@@ -12,15 +14,39 @@ export const MessageComponent: FC<MessageComponentProps> = ({
 	username,
 	avatar,
 }) => {
+	const {width, height} = useVideoConfig();
+
 	return (
 		<div
-			className="flex flex-row text-5xl font-bold leading-relaxed"
+			style={{
+				width,
+				height,
+			}}
+			className="flex flex-row text-5xl font-bold leading-relaxed "
 		>
-            <Img src={avatar} alt="Avatar Image" className='rounded-[50%]' />
-			<div className="flex flex-col">
-				<p>{username}</p>
-				<p>{content}</p>
+			<div className="absolute top-0 left-0 flex flex-row justify-items-center w-screen h-[20vh]">
+				<Img
+					src={avatar}
+					alt="Avatar Image"
+					className="rounded-[50%] aspect-square h-[20vh] mr-4"
+				/>
+				<Textfit
+					mode="single"
+					forceSingleModeWidth={false}
+                    style={{
+                        width: "calc(100vw - (20vh + 16px))"
+                    }}
+					className="h-[20vh] flex-grow"
+				>
+					{username}
+				</Textfit>
 			</div>
+			<Textfit
+				className="absolute top-[20vh] left-0 w-screen h-[80vh]"
+				mode="multi"
+			>
+				{content}
+			</Textfit>
 		</div>
 	);
 };

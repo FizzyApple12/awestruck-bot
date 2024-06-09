@@ -46,7 +46,7 @@ export type ReadSequenceRendererProps = {
 const ReadSequenceRenderer: FC<ReadSequenceRendererProps> = ({
 	message,
 	author,
-	pattern,
+	pattern
 }) => {
 	const frame = useCurrentFrame();
 	const {fps} = useVideoConfig();
