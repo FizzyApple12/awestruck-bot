@@ -1,10 +1,8 @@
-import { RetrievePhoto } from './API/Photos';
-import { RetrieveTTS } from './API/TTS';
-import {
-	VIDEO_FADE_TIME,
-} from './config';
+import {RetrievePhoto} from './API/Photos';
+import {RetrieveTTS} from './API/TTS';
+import {VIDEO_FADE_TIME} from './config';
 
-import { Lexer, PartOfSpeech, Tagger } from 'parts-of-speech';
+import {Lexer, PartOfSpeech, Tagger} from 'parts-of-speech';
 
 export enum PatternPartType {
 	Read,
@@ -119,7 +117,9 @@ export const GeneratePattern = async (
 	let currentOffset = 0;
 
 	for (const segment of speechSplitMessage) {
-		const {file, length} = await RetrieveTTS(segment.words);
+		const {file, length} = await RetrieveTTS(
+			segment.words.replace(/"/g, '\\"')
+		);
 
 		switch (segment.part) {
 			case PatternPartType.Read:

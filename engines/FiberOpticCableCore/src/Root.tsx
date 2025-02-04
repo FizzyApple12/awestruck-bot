@@ -64,9 +64,9 @@ export const TestAuthor = {
 	hexAccentColor: undefined,
 	tag: 'fizzyapple12',
 	avatarURL:
-		'https://cdn.discordapp.com/avatars/313385355049041921/318edd79887cd6ca8e5bfeac638313c2.webp',
+		'https://cdn.discordapp.com/avatars/313385355049041921/2ca46b5853fbdc245c547efe876cf25e.webp?size=4096',
 	displayAvatarURL:
-		'https://cdn.discordapp.com/avatars/313385355049041921/318edd79887cd6ca8e5bfeac638313c2.webp',
+		'https://cdn.discordapp.com/avatars/313385355049041921/2ca46b5853fbdc245c547efe876cf25e.webp?size=4096',
 	bannerURL: undefined,
 };
 
